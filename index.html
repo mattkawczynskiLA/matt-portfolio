@@ -13,40 +13,49 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-slate-200 selection:text-slate-900">
 
-  <!-- Navigation -->
+  <!-- Navigation (Mobile Guarded: fluid spacing & text size) -->
   <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-base font-semibold tracking-tight text-slate-900 hover:text-blue-600 transition flex items-center group">
-          Matt Kawczynski
-          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1.5 text-slate-400 group-hover:text-blue-600 transition"></i>
-        </a>
-        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 hidden sm:inline-block">SAG-AFTRA • AEA</span>
-      </div>
-      <div class="flex items-center space-x-6 text-sm font-medium text-slate-600">
-        <a href="https://vimeo.com/228690376" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition">Reel</a>
-        <a href="#headshots" class="hover:text-slate-900 transition">Headshots</a>
-        <a href="#resume" class="hover:text-slate-900 transition">Credits</a>
-        <a href="mailto:MattKawczynski@gmail.com" class="text-blue-600 hover:text-blue-700 transition">Contact</a>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-end">
+      <div class="flex items-center space-x-4 sm:space-x-7 text-sm sm:text-base font-semibold">
+        <a href="https://vimeo.com/user33534306" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-cyan-600 transition duration-150">Reels</a>
+        <a href="#headshots" class="text-slate-700 hover:text-indigo-600 transition duration-150">Headshots</a>
+        <a href="#resume" class="text-slate-700 hover:text-amber-600 transition duration-150">Credits</a>
+        <a href="mailto:MattKawczynski@gmail.com" class="text-slate-700 hover:text-blue-600 transition duration-150">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="min-h-[85vh] flex items-center pt-28 pb-16 px-6">
-    <div class="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+  <header class="min-h-[85vh] flex items-center pt-24 sm:pt-28 pb-16 px-6">
+    <div class="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center">
       <div class="md:col-span-7 space-y-6">
-        <div class="flex flex-wrap items-center gap-2.5">
-          <span class="text-xs sm:text-[13px] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200 shadow-sm">SAG-AFTRA</span>
-          <span class="text-xs sm:text-[13px] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-md bg-slate-100 text-slate-700 border border-slate-300 shadow-sm">Actors' Equity Association</span>
-          <span class="text-xs sm:text-sm text-slate-400 font-normal ml-1">Los Angeles</span>
+        
+        <!-- Union Badges with Enlarged Icons and Neutral Text -->
+        <div class="flex flex-wrap items-end gap-3 sm:gap-4">
+          
+          <!-- SAG-AFTRA Group -->
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-solid fa-clapperboard text-slate-700 text-xl sm:text-2xl"></i>
+            <span class="text-xs sm:text-[13px] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-md bg-slate-100 text-slate-800 border border-slate-300 shadow-sm">
+              SAG-AFTRA
+            </span>
+          </div>
+
+          <!-- AEA Group -->
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-solid fa-masks-theater text-slate-700 text-2xl sm:text-3xl leading-none"></i>
+            <span class="text-xs sm:text-[13px] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-md bg-slate-100 text-slate-800 border border-slate-300 shadow-sm">
+              AEA
+            </span>
+          </div>
+
         </div>
         
         <div>
           <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="group inline-block">
             <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 group-hover:text-blue-600 transition">
               Matt Kawczynski
-              <i class="fa-brands fa-imdb text-2xl sm:text-3xl text-amber-500 ml-2 align-middle inline-block hover:scale-105 transition"></i>
+              <i class="fa-brands fa-imdb text-2xl sm:text-3xl text-[#f5c518] ml-2 align-middle inline-block hover:scale-105 transition"></i>
             </h1>
           </a>
           <p class="text-lg text-slate-600 font-normal mt-3 leading-relaxed tracking-wide">
@@ -54,42 +63,46 @@
           </p>
         </div>
 
+        <!-- Action Buttons -->
         <div class="flex flex-wrap items-center gap-3 pt-2">
-          <a href="https://vimeo.com/228690376" target="_blank" rel="noopener noreferrer" class="bg-slate-900 hover:bg-slate-800 text-white font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm">
-            <i class="fa-solid fa-play mr-2 text-xs text-blue-400"></i> Watch Reel
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1.5 opacity-60"></i>
+          <a href="https://vimeo.com/228690376" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm group">
+            <i class="fa-solid fa-play mr-2 text-xs text-slate-400 group-hover:text-slate-700 transition"></i>
+            <span>Watch Reel</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1.5 text-slate-400 group-hover:text-slate-700 transition"></i>
           </a>
           <a href="mailto:MattKawczynski@gmail.com" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm">
-            <i class="fa-regular fa-envelope mr-2 text-slate-400"></i> Email Matt
+            <i class="fa-regular fa-envelope mr-2 text-slate-400"></i> Email
           </a>
-          <a href="#resume" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition shadow-sm">
-            Resume
+          <a href="https://pro.imdb.com/name/nm1189848/credits/?ref_=nmovr_cdt" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm group">
+            <span>Resume</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1.5 text-slate-400 group-hover:text-slate-700 transition"></i>
           </a>
         </div>
 
-        <div class="flex items-center space-x-5 pt-3 text-slate-400 text-lg">
-          <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-800 transition" title="IMDb">
-            <i class="fa-brands fa-imdb text-xl"></i>
+        <!-- Social Icons -->
+        <div class="flex items-center space-x-6 pt-3 text-2xl">
+          <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-[#f5c518] hover:text-[#e2b616] hover:scale-110 transition duration-200" title="IMDb">
+            <i class="fa-brands fa-imdb text-[28px]"></i>
           </a>
-          <a href="https://vimeo.com/228690376" target="_blank" rel="noopener noreferrer" class="hover:text-slate-800 transition" title="Vimeo Reel">
-            <i class="fa-brands fa-vimeo-v"></i>
+          <a href="https://vimeo.com/user33534306" target="_blank" rel="noopener noreferrer" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Vimeo">
+            <i class="fa-brands fa-vimeo-v text-[22px]"></i>
           </a>
-          <a href="https://www.youtube.com/watch?v=PSwLyzVqms8&list=PL26BF8CD6F47377EF&index=1" target="_blank" rel="noopener noreferrer" class="hover:text-slate-800 transition" title="YouTube">
-            <i class="fa-brands fa-youtube"></i>
+          <a href="https://www.youtube.com/playlist?list=PL26BF8CD6F47377EF&feature=plcp" target="_blank" rel="noopener noreferrer" class="text-[#ff0000] hover:text-[#cc0000] hover:scale-110 transition duration-200" title="YouTube Playlist">
+            <i class="fa-brands fa-youtube text-[24px]"></i>
           </a>
-          <a href="https://www.instagram.com/mattkawczynski/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-600 transition" title="Instagram">
-            <i class="fa-brands fa-instagram"></i>
+          <a href="https://www.instagram.com/mattkawczynski/" target="_blank" rel="noopener noreferrer" class="text-[#e1306c] hover:text-[#c1275b] hover:scale-110 transition duration-200" title="Instagram">
+            <i class="fa-brands fa-instagram text-[24px]"></i>
           </a>
         </div>
       </div>
 
       <!-- Hero Photo -->
       <div class="md:col-span-5 flex justify-center">
-        <div class="w-full max-w-sm aspect-[2/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
+        <div class="w-full max-w-xs sm:max-w-sm aspect-[2/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
           <img 
             src="Rcht WEB Matt Kawczynski 0505-EVT eve.jpg" 
             alt="Matt Kawczynski" 
-            class="w-full h-full object-cover object-top"
+            class="w-full h-full object-cover object-top" 
           />
         </div>
       </div>
@@ -103,4 +116,215 @@
         <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900">Click here for laughs</h2>
       </div>
 
-      <div id="
+      <a 
+        href="https://www.youtube.com/watch?v=PSwLyzVqms8&t=1s" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="block relative aspect-video w-full rounded-xl overflow-hidden border border-slate-200 shadow-md bg-slate-900 group"
+        title="Watch on YouTube"
+      >
+        <img 
+          src="https://img.youtube.com/vi/PSwLyzVqms8/maxresdefault.jpg" 
+          alt="Matt Kawczynski - Calls" 
+          class="w-full h-full object-cover group-hover:scale-102 transition duration-500 opacity-95 group-hover:opacity-100" 
+        />
+        <div class="absolute inset-0 flex items-center justify-center bg-slate-950/20 group-hover:bg-slate-950/10 transition">
+          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-red-700 transition duration-300">
+            <i class="fa-solid fa-play text-lg sm:text-xl ml-0.5"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Headshots Section -->
+  <section id="headshots" class="py-16 border-t border-slate-200 bg-slate-50 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox('Rcht WEB Matt Kawczynski 0065-EVT eve.jpg')">
+          <img 
+            src="Rcht WEB Matt Kawczynski 0065-EVT eve.jpg" 
+            alt="Matt Kawczynski Headshot - Quilted Jacket" 
+            class="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500" 
+          />
+        </div>
+        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox('Rcht WEB Matt Kawczynski 0344-EVT eve.jpg')">
+          <img 
+            src="Rcht WEB Matt Kawczynski 0344-EVT eve.jpg" 
+            alt="Matt Kawczynski Headshot - Shirt and Tie" 
+            class="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500" 
+          />
+        </div>
+        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox('Rcht WEB Matt Kawczynski 0505-EVT eve.jpg')">
+          <img 
+            src="Rcht WEB Matt Kawczynski 0505-EVT eve.jpg" 
+            alt="Matt Kawczynski Headshot - Teal Sweater" 
+            class="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500" 
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="py-20 border-t border-slate-200 bg-white px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4 border-b border-slate-200 pb-5">
+        <div>
+          <!-- Unified Neutral Badges -->
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs sm:text-[13px] uppercase font-bold tracking-wider px-3 py-1 rounded-md bg-slate-100 text-slate-800 border border-slate-300 shadow-sm">SAG-AFTRA</span>
+            <span class="text-xs sm:text-[13px] uppercase font-bold tracking-wider px-3 py-1 rounded-md bg-slate-100 text-slate-800 border border-slate-300 shadow-sm">AEA</span>
+          </div>
+          <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Selected Credits</h2>
+        </div>
+        <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-base font-semibold text-blue-600 hover:text-blue-800 flex items-center transition bg-blue-50/70 hover:bg-blue-100/70 px-4 py-2 rounded-lg border border-blue-200 shadow-sm group">
+          <i class="fa-brands fa-imdb mr-2 text-xl text-[#f5c518] group-hover:scale-105 transition"></i> View Complete Resume on IMDb
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-2 text-blue-400 group-hover:text-blue-700 transition"></i>
+        </a>
+      </div>
+
+      <!-- Credits Table -->
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-3">Film &amp; Television</h3>
+          <div class="divide-y divide-slate-100 text-sm">
+            
+            <div class="py-3.5 grid grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center">
+              <a href="https://www.imdb.com/title/tt5242320/?ref_=nm_flmg_job_1_accord_1_cdt_t_8" target="_blank" rel="noopener noreferrer" class="col-span-12 sm:col-span-6 font-semibold text-blue-600 hover:text-blue-800 transition flex items-center group">
+                <span class="underline decoration-blue-300 underline-offset-2">Binky Nelson Unpacified (Minions short)</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px] ml-2 text-slate-400 group-hover:text-blue-600 transition"></i>
+              </a>
+              <span class="col-span-6 sm:col-span-3 text-slate-600">Security Guard (Voice)</span>
+              <span class="col-span-6 sm:col-span-3 text-right text-slate-400">Illumination Entertainment</span>
+            </div>
+
+            <div class="py-3.5 grid grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center">
+              <a href="https://www.imdb.com/title/tt0120608/?ref_=nm_flmg_job_1_accord_1_cdt_t_27" target="_blank" rel="noopener noreferrer" class="col-span-12 sm:col-span-6 font-semibold text-blue-600 hover:text-blue-800 transition flex items-center group">
+                <span class="underline decoration-blue-300 underline-offset-2">Big Helium Dog</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px] ml-2 text-slate-400 group-hover:text-blue-600 transition"></i>
+              </a>
+              <span class="col-span-6 sm:col-span-3 text-slate-600">Charlie (principal)</span>
+              <span class="col-span-6 sm:col-span-3 text-right text-slate-400">View Askew / Dir. Brian Lynch</span>
+            </div>
+
+            <div class="py-3.5 grid grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center">
+              <a href="https://www.imdb.com/title/tt14667630/?ref_=nm_flmg_job_1_accord_1_cdt_t_2" target="_blank" rel="noopener noreferrer" class="col-span-12 sm:col-span-6 font-semibold text-blue-600 hover:text-blue-800 transition flex items-center group">
+                <span class="underline decoration-blue-300 underline-offset-2">The Red Rob Roy Show</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px] ml-2 text-slate-400 group-hover:text-blue-600 transition"></i>
+              </a>
+              <span class="col-span-6 sm:col-span-3 text-slate-600">Stan</span>
+              <span class="col-span-6 sm:col-span-3 text-right text-slate-400">Dir. Rob Roy</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physical Media Showcase -->
+  <section id="buynow" class="py-16 border-t border-slate-200 bg-slate-50 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+        <!-- 1. Big Helium Dog -->
+        <a 
+          href="https://www.amazon.com/dp/B0FBPHFG82?plpRedirect=mhFallback&ref=clp_hp_h_pc" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="block w-40 sm:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition duration-300 border border-slate-200"
+          title="Buy Big Helium Dog on Amazon"
+        >
+          <img 
+            src="BHD.jpg"[cite: 1]
+            alt="Big Helium Dog" 
+            class="w-full h-full object-cover" 
+          />
+        </a>
+
+        <!-- 2. Minions -->
+        <a 
+          href="https://www.amazon.com/dp/B0FBPHFG82?plpRedirect=mhFallback&ref=clp_hp_h_pc" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="block w-40 sm:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition duration-300 border border-slate-200"
+          title="Buy Minions on Amazon"
+        >
+          <img 
+            src="Minions.jpg"[cite: 2]
+            alt="Minions" 
+            class="w-full h-full object-cover" 
+          />
+        </a>
+
+        <!-- 3. Mancation -->
+        <a 
+          href="https://www.amazon.com/Mancation-Fatone/dp/B008QE9VDY?sa-no-redirect=1" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="block w-40 sm:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition duration-300 border border-slate-200"
+          title="Buy Mancation on Amazon"
+        >
+          <img 
+            src="Mancation.jpg" 
+            alt="Mancation" 
+            class="w-full h-full object-cover" 
+          />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <footer id="contact" class="py-16 border-t border-slate-200 bg-white px-6 text-center">
+    <div class="max-w-xl mx-auto space-y-5">
+      <h3 class="text-xl font-semibold text-slate-900">Get in Touch</h3>
+      <p class="text-slate-600 text-sm">For representation, bookings, and auditions:</p>
+      
+      <div>
+        <a href="mailto:MattKawczynski@gmail.com" class="inline-flex items-center space-x-2 text-slate-900 hover:text-blue-600 font-medium text-base transition">
+          <i class="fa-regular fa-envelope text-slate-400"></i>
+          <span>MattKawczynski@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="flex justify-center items-center space-x-6 pt-3 text-2xl">
+        <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-[#f5c518] hover:text-[#e2b616] hover:scale-110 transition duration-200" title="IMDb">
+          <i class="fa-brands fa-imdb text-[28px]"></i>
+        </a>
+        <a href="https://vimeo.com/user33534306" target="_blank" rel="noopener noreferrer" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Vimeo">
+          <i class="fa-brands fa-vimeo-v text-[22px]"></i>
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PL26BF8CD6F47377EF&feature=plcp" target="_blank" rel="noopener noreferrer" class="text-[#ff0000] hover:text-[#cc0000] hover:scale-110 transition duration-200" title="YouTube Playlist">
+          <i class="fa-brands fa-youtube text-[24px]"></i>
+        </a>
+        <a href="https://www.instagram.com/mattkawczynski/" target="_blank" rel="noopener noreferrer" class="text-[#e1306c] hover:text-[#c1275b] hover:scale-110 transition duration-200" title="Instagram">
+          <i class="fa-brands fa-instagram text-[24px]"></i>
+        </a>
+      </div>
+
+      <div class="pt-6 border-t border-slate-200/80 text-xs text-slate-400">
+        © Matt Kawczynski
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-slate-900/90 hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 text-slate-300 hover:text-white text-3xl font-light" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" class="max-w-full max-h-[90vh] object-contain rounded shadow-2xl" src="" alt="Headshot Full View" onclick="event.stopPropagation()" />
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.getElementById('lightbox').classList.add('flex');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox-img').classList.add('hidden');
+      document.getElementById('lightbox').classList.remove('flex');
+    }
+  </script>
+</body>
+</html>
