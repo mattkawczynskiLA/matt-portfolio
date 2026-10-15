@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matthew Kawczynski | Actor & Voiceover Artist</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldHover: '#c19c2a',
+              amber: '#F59E0B',
+              dark: '#0A0A0C',
+              card: '#121216',
+              border: '#23232A'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272e;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d4af37;
+    }
+    .cinema-gradient {
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, rgba(10, 10, 12, 0) 70%);
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-zinc-100 font-sans antialiased selection:bg-brand-gold selection:text-black min-h-screen transition-colors duration-300">
+
+  <!-- Interactive Mockup Preview Bar -->
+  <div id="preview-bar" class="sticky top-0 z-50 bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border-b border-zinc-700/60 px-4 py-2 text-xs text-zinc-300 flex flex-wrap items-center justify-between shadow-lg gap-2">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Ready for GitHub Pages
+      </span>
+      <span class="hidden sm:inline font-mono text-zinc-400">Target Domain: <strong>mattkawczynski.com</strong></span>
+    </div>
+    <div class="flex items-center gap-3">
+      <button onclick="toggleTheme()" class="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 transition flex items-center gap-1.5" title="Switch Theme">
+        <i id="theme-icon" class="fa-solid fa-moon text-brand-gold"></i>
+        <span id="theme-text">Dark Cinema</span>
+      </button>
+      <button onclick="simulateDeployModal()" class="px-3 py-1 rounded bg-brand-gold hover:bg-brand-goldHover text-black font-semibold shadow-sm transition">
+        Export / Deploy Guide
+      </button>
+    </div>
+  </div>
+
+  <!-- Primary Site Navigation -->
+  <nav class="sticky top-[37px] z-40 bg-brand-dark/85 backdrop-blur-xl border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-6 h-18 py-4 flex items-center justify-between">
+      <a href="#" class="group flex flex-col">
+        <span class="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-brand-gold transition">
+          MATTHEW KAWCZYNSKI
+        </span>
+        <span class="text-[10px] uppercase tracking-widest text-zinc-400 font-medium">Actor • Voiceover • Comedy</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center space-x-7 text-sm font-medium text-zinc-300">
+        <a href="#about" class="hover:text-brand-gold transition">About</a>
+        <a href="#reels" class="hover:text-brand-gold transition">Reels & Clips</a>
+        <a href="#voiceover" class="hover:text-brand-gold transition">Voiceover</a>
+        <a href="#headshots" class="hover:text-brand-gold transition">Headshots</a>
+        <a href="#resume" class="hover:text-brand-gold transition">Resume</a>
+        <a href="#contact" class="hover:text-brand-gold transition">Contact</a>
+        <a href="#contact" class="bg-brand-gold/10 hover:bg-brand-gold hover:text-black border border-brand-gold/40 text-brand-gold px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition duration-200 uppercase">
+          Book Audition
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-zinc-300 hover:text-white p-2">
+        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-6 border-b border-brand-border bg-brand-dark/95 space-y-3 text-sm">
+      <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-gold">About</a>
+      <a href="#reels" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-gold">Reels & Clips</a>
+      <a href="#voiceover" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-gold">Voiceover</a>
+      <a href="#headshots" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-gold">Headshots</a>
+      <a href="#resume" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-gold">Resume</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-gold">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="about" class="cinema-gradient relative pt-12 pb-24 md:py-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Text & Bio -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-zinc-800/80 border border-zinc-700 text-zinc-300">
+          <span class="w-2 h-2 rounded-full bg-brand-gold"></span>
+          <span>SAG-AFTRA Eligible • Los Angeles, CA</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Dynamic Character Actor & <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-200 to-amber-500 font-serif italic font-normal">Voice Talent</span>
+        </h1>
+
+        <p class="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+          Bringing distinct versatility to screen and soundstage. Known for sharp comedic timing, grounded theatrical roles, and high-energy animation voice work including studio shorts for <strong class="text-zinc-200">Illumination’s Minions</strong> and independent features.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#reels" class="px-6 py-3.5 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-black font-bold text-sm tracking-wide shadow-lg shadow-brand-gold/15 transition flex items-center gap-2">
+            <i class="fa-solid fa-play text-xs"></i> Watch Reels
+          </a>
+          <a href="#resume" class="px-6 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-brand-border font-semibold text-sm transition flex items-center gap-2">
+            <i class="fa-solid fa-file-lines text-xs text-brand-gold"></i> Credits & Resume
+          </a>
+          <a href="#contact" class="px-5 py-3.5 rounded-xl bg-transparent hover:bg-zinc-800/50 text-zinc-400 hover:text-zinc-200 text-sm font-medium transition">
+            Representation <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Quick Profile Badges -->
+        <div class="pt-6 border-t border-brand-border/60 flex flex-wrap items-center gap-6 text-xs text-zinc-400">
+          <div><span class="text-zinc-200 font-semibold block text-sm">Representation:</span> Open / Direct Inquiries</div>
+          <div class="w-px h-6 bg-zinc-800 hidden sm:block"></div>
+          <div><span class="text-zinc-200 font-semibold block text-sm">Home Studio:</span> Broadcast-Quality Booth (Source-Connect)</div>
+          <div class="w-px h-6 bg-zinc-800 hidden sm:block"></div>
+          <div><span class="text-zinc-200 font-semibold block text-sm">Passports:</span> Valid US & Worldwide Ready</div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Headshot Showcase -->
+      <div class="lg:col-span-5 relative flex justify-center">
+        <div class="relative w-full max-w-sm sm:max-w-md">
+          <!-- Ambient Glow Effect -->
+          <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-gold/30 to-amber-600/20 rounded-3xl blur-2xl opacity-40"></div>
+          
+          <div class="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-card shadow-2xl group">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
+              alt="Matthew Kawczynski Theatrical Headshot" 
+              class="w-full aspect-[4/5] object-cover object-top group-hover:scale-102 transition duration-700"
+            />
+            <div class="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black via-black/70 to-transparent">
+              <span class="text-xs uppercase tracking-wider font-semibold text-brand-gold">Theatrical Headshot</span>
+              <p class="text-white text-sm font-medium">Matthew Kawczynski</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Reels Section -->
+  <section id="reels" class="py-20 border-t border-brand-border bg-brand-card/40">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">On-Screen Performance</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Reels & Featured Clips</h2>
+        </div>
+        
+        <!-- Reel Filter Tabs -->
+        <div class="flex bg-zinc-900 p-1 rounded-xl border border-brand-border text-xs font-semibold">
+          <button onclick="switchReel('theatrical')" id="tab-theatrical" class="reel-tab px-4 py-2 rounded-lg bg-brand-gold text-black transition">Theatrical</button>
+          <button onclick="switchReel('comedy')" id="tab-comedy" class="reel-tab px-4 py-2 rounded-lg text-zinc-400 hover:text-white transition">Comedy & Commercial</button>
+          <button onclick="switchReel('scene')" id="tab-scene" class="reel-tab px-4 py-2 rounded-lg text-zinc-400 hover:text-white transition">Film Excerpts</button>
+        </div>
+      </div>
+
+      <!-- Video Player Display Container -->
+      <div class="relative rounded-2xl overflow-hidden border border-brand-border bg-black shadow-2xl aspect-video max-w-5xl mx-auto flex items-center justify-center group">
+        <img 
+          id="reel-poster"
+          src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" 
+          alt="Video Reel Preview" 
+          class="w-full h-full object-cover opacity-60 group-hover:scale-101 transition duration-500"
+        />
+
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+        <!-- Play Button Trigger -->
+        <button onclick="openVideoModal()" class="absolute z-10 w-20 h-20 rounded-full bg-brand-gold/90 hover:bg-brand-gold text-black flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition duration-300 pl-1">
+          <i class="fa-solid fa-play"></i>
+        </button>
+
+        <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
+          <div>
+            <h3 id="reel-title" class="text-xl font-bold">Drama & Theatrical Demo Reel</h3>
+            <p id="reel-desc" class="text-xs text-zinc-300">Dramatic feature credits, television guest-star highlights, and stage adaptations.</p>
+          </div>
+          <span class="text-xs font-mono bg-black/60 px-2.5 py-1 rounded border border-zinc-700">02:14</span>
+        </div>
+      </div>
+
+      <!-- Quick Scene Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-8">
+        <div onclick="selectClip('Drama Clip: Police Interrogation', 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80')" class="cursor-pointer bg-brand-card p-3 rounded-xl border border-brand-border hover:border-brand-gold/50 transition flex items-center gap-4">
+          <div class="w-16 h-12 bg-zinc-800 rounded-lg overflow-hidden relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" />
+            <i class="fa-solid fa-play absolute inset-0 m-auto text-[10px] text-white w-4 h-4 flex items-center justify-center"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Interrogation Scene</h4>
+            <p class="text-[11px] text-zinc-400">Dramatic lead role (0:45)</p>
+          </div>
+        </div>
+
+        <div onclick="selectClip('Comedy Short: The Corporate Pitch', 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80')" class="cursor-pointer bg-brand-card p-3 rounded-xl border border-brand-border hover:border-brand-gold/50 transition flex items-center gap-4">
+          <div class="w-16 h-12 bg-zinc-800 rounded-lg overflow-hidden relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" />
+            <i class="fa-solid fa-play absolute inset-0 m-auto text-[10px] text-white w-4 h-4 flex items-center justify-center"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">The Startup Pitch</h4>
+            <p class="text-[11px] text-zinc-400">Sketch comedy short (1:12)</p>
+          </div>
+        </div>
+
+        <div onclick="selectClip('Animation Feature: Minions Guard Voice', 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80')" class="cursor-pointer bg-brand-card p-3 rounded-xl border border-brand-border hover:border-brand-gold/50 transition flex items-center gap-4">
+          <div class="w-16 h-12 bg-zinc-800 rounded-lg overflow-hidden relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" />
+            <i class="fa-solid fa-play absolute inset-0 m-auto text-[10px] text-white w-4 h-4 flex items-center justify-center"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Illumination Minions Clip</h4>
+            <p class="text-[11px] text-zinc-400">Voice character performance (0:30)</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Voiceover & Audio Showcase Section -->
+  <section id="voiceover" class="py-20 border-t border-brand-border bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Voiceover & Animation</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Audio Demos & Booth Specs</h2>
+        <p class="text-zinc-400 text-sm mt-2 max-w-2xl">Broadcast-ready custom vocal tracks for commercials, video games, narrative audio, and animated series. Equipped with Sennheiser MKH 416, Apollo Solo interface, and high-speed Source-Connect.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Track 1: Animation & Character -->
+        <div class="bg-brand-card rounded-2xl p-6 border border-brand-border hover:border-zinc-700 transition space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 text-xs font-semibold uppercase">Animation / Gaming</span>
+            <span class="text-xs text-zinc-400 font-mono">1:15</span>
+          </div>
+          <h3 class="text-lg font-bold text-white">Character & Creature Reel</h3>
+          <p class="text-xs text-zinc-400">High energy, quirky guards, animated villains, and dynamic sidekicks.</p>
+          
+          <!-- Interactive Player Controls -->
+          <div class="pt-2">
+            <div class="flex items-center gap-3">
+              <button onclick="toggleAudio('track1', this)" class="w-10 h-10 rounded-full bg-brand-gold text-black flex items-center justify-center hover:scale-105 transition">
+                <i class="fa-solid fa-play text-sm"></i>
+              </button>
+              <div class="flex-1 bg-zinc-800 rounded-full h-2 overflow-hidden cursor-pointer" onclick="scrubTrack('track1-bar')">
+                <div id="track1-bar" class="bg-brand-gold h-full w-0 transition-all duration-200"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-[10px] text-zinc-400 mt-2 font-mono">
+              <span id="track1-time">0:00</span>
+              <span>1:15</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 2: Commercial Voice -->
+        <div class="bg-brand-card rounded-2xl p-6 border border-brand-border hover:border-zinc-700 transition space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase">Commercial</span>
+            <span class="text-xs text-zinc-400 font-mono">0:58</span>
+          </div>
+          <h3 class="text-lg font-bold text-white">National Commercial Reel</h3>
+          <p class="text-xs text-zinc-400">Warm, conversational, dry comedic, and trustworthy brand delivery.</p>
+          
+          <!-- Interactive Player Controls -->
+          <div class="pt-2">
+            <div class="flex items-center gap-3">
+              <button onclick="toggleAudio('track2', this)" class="w-10 h-10 rounded-full bg-brand-gold text-black flex items-center justify-center hover:scale-105 transition">
+                <i class="fa-solid fa-play text-sm"></i>
+              </button>
+              <div class="flex-1 bg-zinc-800 rounded-full h-2 overflow-hidden cursor-pointer" onclick="scrubTrack('track2-bar')">
+                <div id="track2-bar" class="bg-brand-gold h-full w-0 transition-all duration-200"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-[10px] text-zinc-400 mt-2 font-mono">
+              <span id="track2-time">0:00</span>
+              <span>0:58</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 3: Promo / Narration -->
+        <div class="bg-brand-card rounded-2xl p-6 border border-brand-border hover:border-zinc-700 transition space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase">Promo & Documentary</span>
+            <span class="text-xs text-zinc-400 font-mono">1:04</span>
+          </div>
+          <h3 class="text-lg font-bold text-white">Promo & Narrative Reel</h3>
+          <p class="text-xs text-zinc-400">Authoritative, cinematic documentary narration, and athletic television promos.</p>
+          
+          <!-- Interactive Player Controls -->
+          <div class="pt-2">
+            <div class="flex items-center gap-3">
+              <button onclick="toggleAudio('track3', this)" class="w-10 h-10 rounded-full bg-brand-gold text-black flex items-center justify-center hover:scale-105 transition">
+                <i class="fa-solid fa-play text-sm"></i>
+              </button>
+              <div class="flex-1 bg-zinc-800 rounded-full h-2 overflow-hidden cursor-pointer" onclick="scrubTrack('track3-bar')">
+                <div id="track3-bar" class="bg-brand-gold h-full w-0 transition-all duration-200"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-[10px] text-zinc-400 mt-2 font-mono">
+              <span id="track3-time">0:00</span>
+              <span>1:04</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Studio Specs Bar -->
+      <div class="mt-8 bg-zinc-900/60 rounded-xl p-4 border border-brand-border flex flex-wrap items-center justify-between text-xs text-zinc-300 gap-4">
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-microphone-lines text-brand-gold text-lg"></i>
+          <div>
+            <span class="font-bold text-white">Home Studio Specs:</span> WhisperRoom sound isolation booth, Sennheiser 416, Universal Audio Interface, MacBook Pro.
+          </div>
+        </div>
+        <button onclick="simulateToast('Demo reel package zip downloaded!')" class="px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-medium border border-zinc-700 transition">
+          <i class="fa-solid fa-download mr-1.5 text-brand-gold"></i> Download All VO MP3s
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Headshot Lightbox Gallery -->
+  <section id="headshots" class="py-20 border-t border-brand-border bg-brand-card/30">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Production Stills & Portraits</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Headshot Gallery</h2>
+        </div>
+        
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Filters -->
+          <div class="flex bg-zinc-900 p-1 rounded-xl border border-brand-border text-xs font-semibold">
+            <button onclick="filterPhotos('all')" id="filter-all" class="photo-btn px-3.5 py-1.5 rounded-lg bg-brand-gold text-black transition">All</button>
+            <button onclick="filterPhotos('theatrical')" id="filter-theatrical" class="photo-btn px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Theatrical</button>
+            <button onclick="filterPhotos('commercial')" id="filter-commercial" class="photo-btn px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Commercial</button>
+            <button onclick="filterPhotos('character')" id="filter-character" class="photo-btn px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Character</button>
+          </div>
+          
+          <button onclick="simulateToast('High-Res Headshots ZIP downloaded.')" class="px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold text-zinc-200 border border-zinc-700 transition">
+            <i class="fa-solid fa-download text-brand-gold mr-1"></i> Hi-Res Press Kit
+          </button>
+        </div>
+      </div>
+
+      <!-- Photo Grid -->
+      <div id="photo-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <!-- Shot 1 -->
+        <div data-category="theatrical" onclick="openLightbox('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=80', 'Dramatic Theatrical Lead')" class="photo-card relative aspect-[4/5] rounded-xl overflow-hidden bg-zinc-900 border border-brand-border cursor-pointer group">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Theatrical Shot" />
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+            <i class="fa-solid fa-expand text-white text-lg"></i>
+          </div>
+          <div class="absolute bottom-2 left-2 text-[10px] font-semibold bg-black/70 px-2 py-0.5 rounded text-white">Theatrical</div>
+        </div>
+
+        <!-- Shot 2 -->
+        <div data-category="commercial" onclick="openLightbox('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80', 'Commercial Smile & Everyday')" class="photo-card relative aspect-[4/5] rounded-xl overflow-hidden bg-zinc-900 border border-brand-border cursor-pointer group">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Commercial Shot" />
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+            <i class="fa-solid fa-expand text-white text-lg"></i>
+          </div>
+          <div class="absolute bottom-2 left-2 text-[10px] font-semibold bg-black/70 px-2 py-0.5 rounded text-white">Commercial</div>
+        </div>
+
+        <!-- Shot 3 -->
+        <div data-category="character" onclick="openLightbox('https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80', 'Comedic & Character Stills')" class="photo-card relative aspect-[4/5] rounded-xl overflow-hidden bg-zinc-900 border border-brand-border cursor-pointer group">
+          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Character Shot" />
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+            <i class="fa-solid fa-expand text-white text-lg"></i>
+          </div>
+          <div class="absolute bottom-2 left-2 text-[10px] font-semibold bg-black/70 px-2 py-0.5 rounded text-white">Character</div>
+        </div>
+
+        <!-- Shot 4 -->
+        <div data-category="theatrical" onclick="openLightbox('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80', 'Intense Detective / Procedural Look')" class="photo-card relative aspect-[4/5] rounded-xl overflow-hidden bg-zinc-900 border border-brand-border cursor-pointer group">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Intense Dramatic" />
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+            <i class="fa-solid fa-expand text-white text-lg"></i>
+          </div>
+          <div class="absolute bottom-2 left-2 text-[10px] font-semibold bg-black/70 px-2 py-0.5 rounded text-white">Theatrical</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Credits & Resume Section -->
+  <section id="resume" class="py-20 border-t border-brand-border bg-brand-dark">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Experience & Background</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Official Credits & Resume</h2>
+        </div>
+
+        <button onclick="simulateToast('Resume PDF downloaded (Actor Profile).')" class="px-5 py-2.5 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-black text-xs font-bold uppercase tracking-wide transition flex items-center gap-2 self-start md:self-auto">
+          <i class="fa-solid fa-file-arrow-down"></i> Download PDF Resume
+        </button>
+      </div>
+
+      <!-- Resume Filter Tabs -->
+      <div class="flex flex-wrap gap-2 mb-6 border-b border-brand-border pb-4 text-xs font-semibold">
+        <button onclick="filterResume('all')" id="res-tab-all" class="res-btn px-4 py-2 rounded-lg bg-brand-gold text-black transition">All Credits</button>
+        <button onclick="filterResume('film')" id="res-tab-film" class="res-btn px-4 py-2 rounded-lg text-zinc-400 hover:text-white transition">Film & Shorts</button>
+        <button onclick="filterResume('animation')" id="res-tab-animation" class="res-btn px-4 py-2 rounded-lg text-zinc-400 hover:text-white transition">Voiceover / Animation</button>
+        <button onclick="filterResume('theater')" id="res-tab-theater" class="res-btn px-4 py-2 rounded-lg text-zinc-400 hover:text-white transition">Theater & Stage</button>
+        <button onclick="filterResume('skills')" id="res-tab-skills" class="res-btn px-4 py-2 rounded-lg text-zinc-400 hover:text-white transition">Training & Skills</button>
+      </div>
+
+      <!-- Credits Table Container -->
+      <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden shadow-xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-zinc-900/90 text-zinc-400 text-xs uppercase tracking-wider border-b border-brand-border">
+              <tr>
+                <th class="py-3.5 px-6 font-semibold">Title / Production</th>
+                <th class="py-3.5 px-6 font-semibold">Role</th>
+                <th class="py-3.5 px-6 font-semibold">Director / Studio</th>
+                <th class="py-3.5 px-6 font-semibold text-right">Category</th>
+              </tr>
+            </thead>
+            <tbody id="resume-body" class="divide-y divide-zinc-800/60 text-zinc-300">
+              
+              <tr data-type="animation" class="hover:bg-zinc-800/40 transition">
+                <td class="py-4 px-6 font-bold text-white">Minions (Short Film)</td>
+                <td class="py-4 px-6 text-brand-gold">Security Guard (Voice)</td>
+                <td class="py-4 px-6 text-zinc-400">Illumination Entertainment / Universal</td>
+                <td class="py-4 px-6 text-right"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/10 text-amber-400 font-medium">Animation</span></td>
+              </tr>
+
+              <tr data-type="film" class="hover:bg-zinc-800/40 transition">
+                <td class="py-4 px-6 font-bold text-white">Big Helium Dog</td>
+                <td class="py-4 px-6 text-brand-gold">Charlie Osgood (Supporting)</td>
+                <td class="py-4 px-6 text-zinc-400">View Askew / Dir. Brian Lynch</td>
+                <td class="py-4 px-6 text-right"><span class="px-2 py-0.5 rounded text-[11px] bg-blue-500/10 text-blue-400 font-medium">Feature Film</span></td>
+              </tr>
+
+              <tr data-type="film" class="hover:bg-zinc-800/40 transition">
+                <td class="py-4 px-6 font-bold text-white">Frankenstein Reborn!</td>
+                <td class="py-4 px-6 text-brand-gold">Grabowski (Supporting)</td>
+                <td class="py-4 px-6 text-zinc-400">The Asylum / Dir. Leigh Scott</td>
+                <td class="py-4 px-6 text-right"><span class="px-2 py-0.5 rounded text-[11px] bg-blue-500/10 text-blue-400 font-medium">Feature Film</span></td>
+              </tr>
+
+              <tr data-type="animation" class="hover:bg-zinc-800/40 transition">
+                <td class="py-4 px-6 font-bold text-white">Neon Cyberpunk RPG (Video Game)</td>
+                <td class="py-4 px-6 text-brand-gold">Jax & Bounty Hunter (Multiple Voices)</td>
+                <td class="py-4 px-6 text-zinc-400">Studio Redux Interactive</td>
+                <td class="py-4 px-6 text-right"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/10 text-amber-400 font-medium">Video Game</span></td>
+              </tr>
+
+              <tr data-type="theater" class="hover:bg-zinc-800/40 transition">
+                <td class="py-4 px-6 font-bold text-white">Glengarry Glen Ross</td>
+                <td class="py-4 px-6 text-brand-gold">Richard Roma (Lead)</td>
+                <td class="py-4 px-6 text-zinc-400">Coast Playhouse, Los Angeles</td>
+                <td class="py-4 px-6 text-right"><span class="px-2 py-0.5 rounded text-[11px] bg-purple-500/10 text-purple-400 font-medium">Theater</span></td>
+              </tr>
+
+              <tr data-type="theater" class="hover:bg-zinc-800/40 transition">
+                <td class="py-4 px-6 font-bold text-white">The Odd Couple</td>
+                <td class="py-4 px-6 text-brand-gold">Oscar Madison (Lead)</td>
+                <td class="py-4 px-6 text-zinc-400">Regional Equity Showcase</td>
+                <td class="py-4 px-6 text-right"><span class="px-2 py-0.5 rounded text-[11px] bg-purple-500/10 text-purple-400 font-medium">Theater</span></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Training & Special Skills Panel (shown or toggled) -->
+        <div id="skills-panel" class="p-6 bg-zinc-900/60 border-t border-brand-border">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+            <div>
+              <h4 class="font-bold text-white uppercase tracking-wider mb-2 text-brand-gold">Training & Education</h4>
+              <ul class="space-y-1.5 text-zinc-300">
+                <li>• <strong>Improvisation & Long Form:</strong> The Groundlings & UCB Theatre (Advanced Study)</li>
+                <li>• <strong>Voiceover Technique:</strong> Kalmenson & Kalmenson (Master Voice Intensive)</li>
+                <li>• <strong>Scene Study:</strong> Beverly Hills Playhouse & Master Classes</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-white uppercase tracking-wider mb-2 text-brand-gold">Special Skills & Attributes</h4>
+              <p class="text-zinc-300 leading-relaxed">
+                <strong>Accents/Dialects:</strong> Standard American, New York / Brooklyn, Boston, Cockney, Southern, Eastern European.<br>
+                <strong>Physical & Performance:</strong> Physical comedy, improv hosting, teleprompter proficient, valid passport, licensed driver.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Representation & Contact Section -->
+  <section id="contact" class="py-20 border-t border-brand-border bg-brand-card/40">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Let's Collaborate</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Representation & Bookings</h2>
+        <p class="text-zinc-400 text-sm mt-2">Direct booking requests, casting notices, and audition self-tape submissions.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Agency Cards & External Links -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-lg">
+                <i class="fa-solid fa-clapperboard"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">Theatrical & Commercial Rep</h3>
+                <p class="text-xs text-zinc-400">Representation Inquiry</p>
+              </div>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed pt-1">
+              Currently accepting theatrical and commercial inquiries directly, or submit through casting directors.
+            </p>
+            <div class="text-xs text-zinc-300 space-y-1">
+              <div><strong class="text-white">Email:</strong> contact@mattkawczynski.com</div>
+              <div><strong class="text-white">Location:</strong> Los Angeles, CA</div>
+            </div>
+          </div>
+
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-3">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Industry Portals</h3>
+            <div class="grid grid-cols-3 gap-3">
+              <a href="https://www.imdb.com" target="_blank" class="p-3 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-800 text-center text-xs font-bold text-zinc-200 transition hover:border-brand-gold">
+                <i class="fa-brands fa-imdb text-xl text-yellow-500 block mb-1"></i> IMDb
+              </a>
+              <a href="https://breakdownexpress.com" target="_blank" class="p-3 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-800 text-center text-xs font-bold text-zinc-200 transition hover:border-brand-gold">
+                <i class="fa-solid fa-film text-xl text-brand-gold block mb-1"></i> Breakdown
+              </a>
+              <a href="https://www.castingnetworks.com" target="_blank" class="p-3 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-800 text-center text-xs font-bold text-zinc-200 transition hover:border-brand-gold">
+                <i class="fa-solid fa-users-viewfinder text-xl text-emerald-400 block mb-1"></i> CN
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Direct Contact Form -->
+        <div class="lg:col-span-7 bg-brand-card p-8 rounded-2xl border border-brand-border">
+          <h3 class="text-xl font-bold text-white mb-2">Send a Direct Message</h3>
+          <p class="text-xs text-zinc-400 mb-6">Leave a message for audition availability, voiceover bookings, or inquiries.</p>
+
+          <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-medium text-zinc-300 mb-1.5">Your Name / Casting Office</label>
+                <input type="text" required placeholder="Jane Doe Casting" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold" />
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-zinc-300 mb-1.5">Your Email</label>
+                <input type="email" required placeholder="casting@production.com" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-zinc-300 mb-1.5">Subject / Project Title</label>
+              <input type="text" placeholder="Audition Request - Theatrical Feature" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-zinc-300 mb-1.5">Message / Sides Attachment Links</label>
+              <textarea rows="4" required placeholder="Project details, shoot dates, rates, or character breakdown..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-black font-bold text-sm tracking-wide transition shadow-lg shadow-brand-gold/10">
+              Submit Inquiry
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Clean Footer -->
+  <footer class="py-12 border-t border-brand-border bg-brand-dark text-xs text-zinc-500">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        © 2026 Matthew Kawczynski (mattkawczynski.com). All Rights Reserved.
+      </div>
+      <div class="flex items-center space-x-6 text-zinc-400">
+        <a href="#about" class="hover:text-brand-gold transition">Top</a>
+        <a href="#reels" class="hover:text-brand-gold transition">Reels</a>
+        <a href="#resume" class="hover:text-brand-gold transition">Credits</a>
+        <a href="#contact" class="hover:text-brand-gold transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-gold transition p-2">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="max-w-3xl max-h-[90vh] flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="Enlarged Headshot" class="max-h-[80vh] w-auto rounded-lg shadow-2xl object-contain border border-zinc-800" />
+      <p id="lightbox-caption" class="text-sm text-zinc-300 mt-3 font-medium"></p>
+    </div>
+  </div>
+
+  <!-- Video Reel Modal -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
+    <button onclick="closeVideoModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-gold transition p-2">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="w-full max-w-4xl aspect-video bg-zinc-950 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl relative flex items-center justify-center">
+      <!-- Simulated Player Animation -->
+      <div class="text-center p-8 space-y-3">
+        <div class="w-16 h-16 rounded-full bg-brand-gold/20 text-brand-gold mx-auto flex items-center justify-center text-2xl animate-pulse">
+          <i class="fa-solid fa-film"></i>
+        </div>
+        <h3 id="modal-video-title" class="text-xl font-bold text-white">Reel Playing...</h3>
+        <p class="text-xs text-zinc-400 max-w-md mx-auto">
+          In your production site, this replaces with your direct Vimeo or YouTube embed URL.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deploy Instructions Modal (Interactive Guide) -->
+  <div id="deploy-modal" class="fixed inset-0 z-50 bg-black/85 hidden items-center justify-center p-4">
+    <div class="bg-zinc-900 border border-brand-border rounded-2xl max-w-2xl w-full p-6 text-zinc-200 shadow-2xl relative space-y-4">
+      <button onclick="closeDeployModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center gap-2 text-brand-gold font-bold text-lg">
+        <i class="fa-solid fa-rocket"></i> Moving From Weebly to GitHub for $0/yr
+      </div>
+
+      <div class="text-xs text-zinc-300 space-y-3 leading-relaxed">
+        <p>This code is 100% self-contained. Here is how you take this exact page live for free:</p>
+        <ol class="list-decimal pl-5 space-y-1.5 text-zinc-300">
+          <li>Save this code as <code>index.html</code>.</li>
+          <li>Create a free account on <a href="https://github.com" target="_blank" class="text-brand-gold underline">GitHub.com</a> and create a repository called <code>mattkawczynski-site</code>.</li>
+          <li>Upload your <code>index.html</code> along with your photo files.</li>
+          <li>In GitHub <strong>Settings > Pages</strong>, enable Pages on the main branch, and enter <code>mattkawczynski.com</code> under Custom Domain.</li>
+          <li>In <strong>GoDaddy DNS</strong>, point your A records to GitHub's IPs (<code>185.199.108.153</code>, <code>185.199.109.153</code>, <code>185.199.110.153</code>, <code>185.199.111.153</code>).</li>
+          <li>Once live, cancel your $240 Weebly subscription!</li>
+        </ol>
+      </div>
+
+      <div class="pt-3 flex justify-end">
+        <button onclick="closeDeployModal()" class="px-4 py-2 bg-brand-gold text-black font-semibold rounded-lg text-xs">
+          Got It
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-zinc-900 border border-brand-gold/60 text-white px-5 py-3 rounded-xl shadow-2xl text-xs flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+    <i class="fa-solid fa-circle-check text-brand-gold text-sm"></i>
+    <span id="toast-message">Action successful!</span>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // Mobile navigation toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      menu.classList.toggle('hidden');
+      if (menu.classList.contains('hidden')) {
+        icon.classList.replace('fa-xmark', 'fa-bars');
+      } else {
+        icon.classList.replace('fa-bars', 'fa-xmark');
+      }
+    }
+
+    // Reel Tab Switcher
+    const reelsData = {
+      theatrical: {
+        title: "Drama & Theatrical Demo Reel",
+        desc: "Dramatic feature credits, television guest-star highlights, and stage adaptations.",
+        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80"
+      },
+      comedy: {
+        title: "Commercial & Comedy Showcase",
+        desc: "High-paced comedic timing, commercial spots, and character sketches.",
+        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80"
+      },
+      scene: {
+        title: "Independent Feature Scenes",
+        desc: "Selected dramatic scene work from indie festival features and festival selections.",
+        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80"
+      }
+    };
+
+    function switchReel(type) {
+      document.querySelectorAll('.reel-tab').forEach(b => {
+        b.classList.remove('bg-brand-gold', 'text-black');
+        b.classList.add('text-zinc-400');
+      });
+      document.getElementById('tab-' + type).classList.add('bg-brand-gold', 'text-black');
+      document.getElementById('tab-' + type).classList.remove('text-zinc-400');
+
+      const data = reelsData[type];
+      document.getElementById('reel-title').innerText = data.title;
+      document.getElementById('reel-desc').innerText = data.desc;
+      document.getElementById('reel-poster').src = data.poster;
+    }
+
+    function selectClip(title, poster) {
+      document.getElementById('reel-title').innerText = title;
+      document.getElementById('reel-desc').innerText = "Selected highlight scene excerpt.";
+      document.getElementById('reel-poster').src = poster;
+      openVideoModal();
+    }
+
+    // Video Modal
+    function openVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const title = document.getElementById('reel-title').innerText;
+      document.getElementById('modal-video-title').innerText = title;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Headshot Lightbox & Filtering
+    function filterPhotos(cat) {
+      document.querySelectorAll('.photo-btn').forEach(b => {
+        b.classList.remove('bg-brand-gold', 'text-black');
+        b.classList.add('text-zinc-400');
+      });
+      document.getElementById('filter-' + cat).classList.add('bg-brand-gold', 'text-black');
+      document.getElementById('filter-' + cat).classList.remove('text-zinc-400');
+
+      const cards = document.querySelectorAll('.photo-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').innerText = caption;
+      const lb = document.getElementById('lightbox-modal');
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox-modal');
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+    }
+
+    // Resume Filters
+    function filterResume(cat) {
+      document.querySelectorAll('.res-btn').forEach(b => {
+        b.classList.remove('bg-brand-gold', 'text-black');
+        b.classList.add('text-zinc-400');
+      });
+      document.getElementById('res-tab-' + cat).classList.add('bg-brand-gold', 'text-black');
+      document.getElementById('res-tab-' + cat).classList.remove('text-zinc-400');
+
+      const rows = document.querySelectorAll('#resume-body tr');
+      const skillsPanel = document.getElementById('skills-panel');
+
+      if (cat === 'skills') {
+        rows.forEach(r => r.classList.add('hidden'));
+        skillsPanel.classList.remove('hidden');
+        return;
+      }
+
+      skillsPanel.classList.remove('hidden');
+      rows.forEach(row => {
+        if (cat === 'all' || row.getAttribute('data-type') === cat) {
+          row.classList.remove('hidden');
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+    }
+
+    // Audio Player Simulation
+    let currentActiveInterval = null;
+    let playingTrack = null;
+
+    function toggleAudio(trackId, btn) {
+      const icon = btn.querySelector('i');
+      const bar = document.getElementById(trackId + '-bar');
+      const timeDisplay = document.getElementById(trackId + '-time');
+
+      if (playingTrack === trackId) {
+        // Pause current
+        clearInterval(currentActiveInterval);
+        icon.classList.replace('fa-pause', 'fa-play');
+        playingTrack = null;
+        return;
+      }
+
+      // Reset any other playing track
+      if (currentActiveInterval) clearInterval(currentActiveInterval);
+      document.querySelectorAll('#voiceover button i').forEach(i => i.classList.replace('fa-pause', 'fa-play'));
+
+      // Start current
+      icon.classList.replace('fa-play', 'fa-pause');
+      playingTrack = trackId;
+
+      let width = parseInt(bar.style.width || '0');
+      currentActiveInterval = setInterval(() => {
+        width += 2;
+        if (width > 100) {
+          width = 0;
+          clearInterval(currentActiveInterval);
+          icon.classList.replace('fa-pause', 'fa-play');
+          playingTrack = null;
+        }
+        bar.style.width = width + '%';
+        const totalSec = trackId === 'track2' ? 58 : (trackId === 'track1' ? 75 : 64);
+        const currentSec = Math.floor((width / 100) * totalSec);
+        const mins = Math.floor(currentSec / 60);
+        const secs = currentSec % 60;
+        timeDisplay.innerText = mins + ':' + (secs < 10 ? '0' : '') + secs;
+      }, 200);
+    }
+
+    function scrubTrack(barId) {
+      const bar = document.getElementById(barId);
+      bar.style.width = '50%';
+    }
+
+    // Contact Submission
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      simulateToast('Thank you! Your message has been sent.');
+      e.target.reset();
+    }
+
+    // Toast Notification
+    function simulateToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    // Deploy Modal
+    function simulateDeployModal() {
+      const modal = document.getElementById('deploy-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeDeployModal() {
+      const modal = document.getElementById('deploy-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Theme Switcher for Mockup
+    let isDark = true;
+    function toggleTheme() {
+      isDark = !isDark;
+      const body = document.body;
+      const themeIcon = document.getElementById('theme-icon');
+      const themeText = document.getElementById('theme-text');
+
+      if (!isDark) {
+        body.classList.remove('bg-brand-dark');
+        body.classList.add('bg-zinc-100', 'text-zinc-900');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        themeText.innerText = 'Light Clean';
+      } else {
+        body.classList.add('bg-brand-dark');
+        body.classList.remove('bg-zinc-100', 'text-zinc-900');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        themeText.innerText = 'Dark Cinema';
+      }
+    }
+  </script>
+</body>
+</html>
