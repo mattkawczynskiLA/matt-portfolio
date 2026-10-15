@@ -14,7 +14,7 @@
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-slate-200 selection:text-slate-900">
 
   <!-- Navigation (Mobile Guarded: fluid spacing & text size) -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+  <nav class="fixed top-0 left-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-end">
       <div class="flex items-center space-x-4 sm:space-x-7 text-sm sm:text-base font-semibold">
         <a href="https://vimeo.com/user33534306" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-cyan-600 transition duration-150">Reels</a>
@@ -141,21 +141,24 @@
   <section id="headshots" class="py-16 border-t border-slate-200 bg-slate-50 px-6">
     <div class="max-w-5xl mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox('Rcht WEB Matt Kawczynski 0065-EVT eve.jpg')">
+        <!-- Photo 0: Quilted Jacket -->
+        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox(0)">
           <img 
             src="Rcht WEB Matt Kawczynski 0065-EVT eve.jpg" 
             alt="Matt Kawczynski Headshot - Quilted Jacket" 
             class="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500" 
           />
         </div>
-        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox('Rcht WEB Matt Kawczynski 0344-EVT eve.jpg')">
+        <!-- Photo 1: Shirt and Tie -->
+        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox(1)">
           <img 
             src="Rcht WEB Matt Kawczynski 0344-EVT eve.jpg" 
             alt="Matt Kawczynski Headshot - Shirt and Tie" 
             class="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500" 
           />
         </div>
-        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox('Rcht WEB Matt Kawczynski 0505-EVT eve.jpg')">
+        <!-- Photo 2: Teal Sweater -->
+        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox(2)">
           <img 
             src="Rcht WEB Matt Kawczynski 0505-EVT eve.jpg" 
             alt="Matt Kawczynski Headshot - Teal Sweater" 
@@ -236,7 +239,7 @@
           title="Buy Big Helium Dog on Amazon"
         >
           <img 
-            src="BHD.jpg"[cite: 1]
+            src="BHD.jpg"[cite: 1] 
             alt="Big Helium Dog" 
             class="w-full h-full object-cover" 
           />
@@ -251,7 +254,7 @@
           title="Buy Minions on Amazon"
         >
           <img 
-            src="Minions.jpg"[cite: 2]
+            src="Minions.jpg"[cite: 2] 
             alt="Minions" 
             class="w-full h-full object-cover" 
           />
@@ -309,22 +312,99 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
-  <div id="lightbox" class="fixed inset-0 z-50 bg-slate-900/90 hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeLightbox()">
-    <button class="absolute top-6 right-6 text-slate-300 hover:text-white text-3xl font-light" onclick="closeLightbox()">&times;</button>
-    <img id="lightbox-img" class="max-w-full max-h-[90vh] object-contain rounded shadow-2xl" src="" alt="Headshot Full View" onclick="event.stopPropagation()" />
+  <!-- Lightbox Modal (High-Touch Dismiss & Gallery Arrows) -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-slate-950/95 hidden items-center justify-center p-3 sm:p-6 backdrop-blur-md select-none" onclick="closeLightbox()">
+    
+    <!-- Prominent Touch-Optimized Close Button (48x48px target) -->
+    <button 
+      type="button" 
+      aria-label="Close Lightbox" 
+      class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/80 hover:bg-slate-700 text-white text-xl shadow-lg border border-slate-600/50 transition active:scale-95" 
+      onclick="event.stopPropagation(); closeLightbox();"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Previous Arrow Button (Left) -->
+    <button 
+      type="button" 
+      aria-label="Previous Headshot" 
+      class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full bg-slate-800/80 hover:bg-slate-700 text-white text-lg sm:text-xl shadow-xl border border-slate-600/50 transition active:scale-90" 
+      onclick="event.stopPropagation(); prevHeadshot();"
+    >
+      <i class="fa-solid fa-chevron-left -ml-0.5"></i>
+    </button>
+
+    <!-- Main Lightbox Image (Clicking on photo does not close modal) -->
+    <div class="relative max-w-full max-h-[82vh] flex items-center justify-center" onclick="event.stopPropagation()">
+      <img 
+        id="lightbox-img" 
+        class="max-w-full max-h-[82vh] object-contain rounded-lg shadow-2xl transition duration-200" 
+        src="" 
+        alt="Matt Kawczynski Headshot" 
+      />
+    </div>
+
+    <!-- Next Arrow Button (Right) -->
+    <button 
+      type="button" 
+      aria-label="Next Headshot" 
+      class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full bg-slate-800/80 hover:bg-slate-700 text-white text-lg sm:text-xl shadow-xl border border-slate-600/50 transition active:scale-90" 
+      onclick="event.stopPropagation(); nextHeadshot();"
+    >
+      <i class="fa-solid fa-chevron-right ml-0.5"></i>
+    </button>
   </div>
 
+  <!-- Lightbox Script with Loop & Keyboard Handling -->
   <script>
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.remove('hidden');
-      document.getElementById('lightbox').classList.add('flex');
+    const headshots = [
+      "Rcht WEB Matt Kawczynski 0065-EVT eve.jpg",
+      "Rcht WEB Matt Kawczynski 0344-EVT eve.jpg",
+      "Rcht WEB Matt Kawczynski 0505-EVT eve.jpg"
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightboxImage();
+      const modal = document.getElementById('lightbox');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
     }
+
     function closeLightbox() {
-      document.getElementById('lightbox-img').classList.add('hidden');
-      document.getElementById('lightbox').classList.remove('flex');
+      const modal = document.getElementById('lightbox');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
     }
+
+    function nextHeadshot() {
+      currentIndex = (currentIndex + 1) % headshots.length;
+      updateLightboxImage();
+    }
+
+    function prevHeadshot() {
+      currentIndex = (currentIndex - 1 + headshots.length) % headshots.length;
+      updateLightboxImage();
+    }
+
+    function updateLightboxImage() {
+      const img = document.getElementById('lightbox-img');
+      img.src = headshots[currentIndex];
+    }
+
+    // Keyboard navigation (Chromebook / Desktop safe)
+    document.addEventListener('keydown', function(e) {
+      const modal = document.getElementById('lightbox');
+      if (!modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextHeadshot();
+        if (e.key === 'ArrowLeft') prevHeadshot();
+      }
+    });
   </script>
 </body>
 </html>
