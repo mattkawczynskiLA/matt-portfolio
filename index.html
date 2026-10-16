@@ -17,7 +17,7 @@
   <nav class="fixed top-0 left-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-end">
       <div class="flex items-center space-x-4 sm:space-x-7 text-sm sm:text-base font-semibold">
-        <a href="/reels/" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-cyan-600 transition duration-150">Reels</a>
+        <a href="#reels" class="text-slate-700 hover:text-cyan-600 transition duration-150">Reels</a>
         <a href="#headshots" class="text-slate-700 hover:text-indigo-600 transition duration-150">Headshots</a>
         <a href="#resume" class="text-slate-700 hover:text-amber-600 transition duration-150">Credits</a>
         <a href="mailto:MattKawczynski@gmail.com" class="text-slate-700 hover:text-blue-600 transition duration-150">Contact</a>
@@ -32,7 +32,6 @@
         
         <!-- Union Badges -->
         <div class="flex flex-wrap items-end gap-3 sm:gap-4">
-          <!-- SAG-AFTRA Group -->
           <div class="flex flex-col items-center gap-2">
             <i class="fa-solid fa-clapperboard text-slate-700 text-xl sm:text-2xl"></i>
             <span class="text-xs sm:text-[13px] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-md bg-slate-100 text-slate-800 border border-slate-300 shadow-sm">
@@ -40,7 +39,6 @@
             </span>
           </div>
 
-          <!-- AEA Group -->
           <div class="flex flex-col items-center gap-2">
             <i class="fa-solid fa-masks-theater text-slate-700 text-2xl sm:text-3xl leading-none"></i>
             <span class="text-xs sm:text-[13px] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-md bg-slate-100 text-slate-800 border border-slate-300 shadow-sm">
@@ -63,10 +61,9 @@
 
         <!-- Action Buttons -->
         <div class="flex flex-wrap items-center gap-3 pt-2">
-          <a href="/reel/" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm group">
+          <a href="#reels" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm group">
             <i class="fa-solid fa-play mr-2 text-xs text-slate-400 group-hover:text-slate-700 transition"></i>
             <span>Watch Reel</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1.5 text-slate-400 group-hover:text-slate-700 transition"></i>
           </a>
           <a href="mailto:MattKawczynski@gmail.com" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm">
             <i class="fa-regular fa-envelope mr-2 text-slate-400"></i> Email
@@ -82,7 +79,7 @@
           <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-[#f5c518] hover:text-[#e2b616] hover:scale-110 transition duration-200" title="IMDb">
             <i class="fa-brands fa-imdb text-[28px]"></i>
           </a>
-          <a href="/reels/" target="_blank" rel="noopener noreferrer" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Vimeo">
+          <a href="#reels" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Watch Reels">
             <i class="fa-brands fa-vimeo-v text-[22px]"></i>
           </a>
           <a href="https://www.youtube.com/playlist?list=PL26BF8CD6F47377EF&feature=plcp" target="_blank" rel="noopener noreferrer" class="text-[#ff0000] hover:text-[#cc0000] hover:scale-110 transition duration-200" title="YouTube Playlist">
@@ -107,8 +104,41 @@
     </div>
   </header>
 
-  <!-- Video Section -->
-  <section id="comedy" class="py-16 border-t border-slate-200 bg-white px-6">
+  <!-- Reels Section (In-Page Player: 100% Mobile Safe) -->
+  <section id="reels" class="py-16 border-t border-slate-200 bg-white px-6">
+    <div class="max-w-3xl mx-auto text-center space-y-6">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Demo Reel</h2>
+        <p class="text-sm text-slate-500 mt-1" id="reelSubtitle">Primary Showcase</p>
+      </div>
+
+      <!-- Main Video Frame -->
+      <div class="relative aspect-video w-full rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-black">
+        <iframe 
+          id="mainReelPlayer"
+          class="w-full h-full" 
+          src="https://player.vimeo.com/video/228690376?color=1ab7ea&title=0&byline=0&portrait=0" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Clip Selector Buttons -->
+      <div class="flex flex-wrap justify-center gap-2 pt-2">
+        <button 
+          type="button" 
+          onclick="switchReel('228690376', 'Primary Showcase', this)" 
+          class="reel-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-slate-900 text-white shadow-sm transition active:scale-95"
+        >
+          Primary Reel
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comedy Section -->
+  <section id="comedy" class="py-16 border-t border-slate-200 bg-slate-50 px-6">
     <div class="max-w-2xl mx-auto text-center">
       <div class="mb-6">
         <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900">Click here for laughs</h2>
@@ -136,7 +166,7 @@
   </section>
 
   <!-- Headshots Section -->
-  <section id="headshots" class="py-16 border-t border-slate-200 bg-slate-50 px-6">
+  <section id="headshots" class="py-16 border-t border-slate-200 bg-white px-6">
     <div class="max-w-5xl mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox(0)">
@@ -165,7 +195,7 @@
   </section>
 
   <!-- Resume Section -->
-  <section id="resume" class="py-20 border-t border-slate-200 bg-white px-6">
+  <section id="resume" class="py-20 border-t border-slate-200 bg-slate-50 px-6">
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4 border-b border-slate-200 pb-5">
         <div>
@@ -218,7 +248,7 @@
   </section>
 
   <!-- Physical Media Showcase -->
-  <section id="buynow" class="py-16 border-t border-slate-200 bg-slate-50 px-6">
+  <section id="buynow" class="py-16 border-t border-slate-200 bg-white px-6">
     <div class="max-w-5xl mx-auto">
       <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
         <a 
@@ -255,7 +285,7 @@
   </section>
 
   <!-- Contact Section -->
-  <footer id="contact" class="py-16 border-t border-slate-200 bg-white px-6 text-center">
+  <footer id="contact" class="py-16 border-t border-slate-200 bg-slate-50 px-6 text-center">
     <div class="max-w-xl mx-auto space-y-5">
       <h3 class="text-xl font-semibold text-slate-900">Get in Touch</h3>
       <p class="text-slate-600 text-sm">For representation, bookings, and auditions:</p>
@@ -271,7 +301,7 @@
         <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-[#f5c518] hover:text-[#e2b616] hover:scale-110 transition duration-200" title="IMDb">
           <i class="fa-brands fa-imdb text-[28px]"></i>
         </a>
-        <a href="/reels/" target="_blank" rel="noopener noreferrer" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Vimeo">
+        <a href="#reels" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Watch Reels">
           <i class="fa-brands fa-vimeo-v text-[22px]"></i>
         </a>
         <a href="https://www.youtube.com/playlist?list=PL26BF8CD6F47377EF&feature=plcp" target="_blank" rel="noopener noreferrer" class="text-[#ff0000] hover:text-[#cc0000] hover:scale-110 transition duration-200" title="YouTube Playlist">
@@ -328,6 +358,21 @@
   </div>
 
   <script>
+    // In-page Reel Switcher
+    function switchReel(videoId, title, btnElement) {
+      const player = document.getElementById('mainReelPlayer');
+      player.src = "https://player.vimeo.com/video/" + videoId + "?color=1ab7ea&title=0&byline=0&portrait=0";
+      document.getElementById('reelSubtitle').innerText = title;
+      
+      document.querySelectorAll('.reel-btn').forEach(btn => {
+        btn.className = "reel-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition active:scale-95";
+      });
+      if (btnElement) {
+        btnElement.className = "reel-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-slate-900 text-white shadow-sm transition active:scale-95";
+      }
+    }
+
+    // Headshots Lightbox
     const headshots = [
       "Rcht WEB Matt Kawczynski 0065-EVT eve.jpg",
       "Rcht WEB Matt Kawczynski 0344-EVT eve.jpg",
