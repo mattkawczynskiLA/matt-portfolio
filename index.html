@@ -182,7 +182,7 @@
     </div>
   </section>
 
-  <!-- Headshots Section (Curated 3-photo view with quick access to full 6-photo lightbox) -->
+  <!-- Headshots Section -->
   <section id="headshots" class="py-16 border-t border-slate-200 bg-slate-50 px-6">
     <div class="max-w-5xl mx-auto space-y-8">
       
@@ -220,7 +220,7 @@
         </div>
       </div>
 
-      <!-- Action Button to open lightbox -->
+      <!-- Action Button (Updated to "View All") -->
       <div class="text-center pt-2">
         <button 
           type="button" 
@@ -228,7 +228,7 @@
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-300 font-medium text-sm shadow-sm transition active:scale-95"
         >
           <i class="fa-regular fa-images text-slate-400"></i>
-          <span>View All 6 Headshots</span>
+          <span>View All</span>
         </button>
       </div>
 
@@ -387,7 +387,7 @@
     </div>
   </div>
 
-  <!-- Headshots Lightbox Modal (Cycles through all 6 photos) -->
+  <!-- Headshots Lightbox Modal -->
   <div id="lightbox" class="fixed inset-0 z-50 bg-slate-950/95 hidden items-center justify-center p-3 sm:p-6 backdrop-blur-md select-none" onclick="closeLightbox()">
     <button 
       type="button" 
@@ -483,7 +483,7 @@
       document.body.classList.remove('overflow-hidden');
     }
 
-    // --- Headshot Lightbox (Includes original 3 + all 3 new uploads) ---
+    // --- Headshot Lightbox Array ---
     const headshots = [
       "Rcht WEB Matt Kawczynski 0065-EVT eve.jpg",
       "Rcht WEB Matt Kawczynski 0344-EVT eve.jpg",
