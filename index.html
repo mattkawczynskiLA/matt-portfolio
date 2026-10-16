@@ -18,7 +18,7 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-end">
       <div class="flex items-center space-x-4 sm:space-x-7 text-sm sm:text-base font-semibold">
         
-        <!-- Reels Dropdown: left-0 on mobile so it expands inward to the right -->
+        <!-- Reels Dropdown -->
         <div class="relative inline-block text-left" id="reelsDropdownContainer">
           <button 
             type="button" 
@@ -32,7 +32,7 @@
             <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200" id="reelsChevron"></i>
           </button>
 
-          <!-- Dropdown Menu: Anchored left-0 on mobile, right-0 on desktop -->
+          <!-- Dropdown Menu -->
           <div 
             id="reelsDropdownMenu" 
             class="hidden absolute left-0 sm:left-auto sm:right-0 mt-2 w-40 sm:w-48 rounded-xl bg-white shadow-2xl border border-slate-200 py-1 z-50 focus:outline-none"
@@ -124,7 +124,6 @@
           <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-[#f5c518] hover:text-[#e2b616] hover:scale-110 transition duration-200" title="IMDb">
             <i class="fa-brands fa-imdb text-[28px]"></i>
           </a>
-          <!-- Vimeo icon plays Theatrical Reel -->
           <button 
             type="button" 
             onclick="playModalVideo('228690376', 'Theatrical Reel')" 
@@ -183,32 +182,56 @@
     </div>
   </section>
 
-  <!-- Headshots Section -->
+  <!-- Headshots Section (Curated 3-photo view with quick access to full 6-photo lightbox) -->
   <section id="headshots" class="py-16 border-t border-slate-200 bg-slate-50 px-6">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto space-y-8">
+      
+      <!-- 3 Preview Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Photo 1 -->
         <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox(0)">
           <img 
             src="Rcht WEB Matt Kawczynski 0065-EVT eve.jpg" 
-            alt="Matt Kawczynski Headshot - Quilted Jacket" 
+            alt="Matt Kawczynski Headshot" 
             class="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500" 
           />
         </div>
+
+        <!-- Photo 2 -->
         <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox(1)">
           <img 
             src="Rcht WEB Matt Kawczynski 0344-EVT eve.jpg" 
-            alt="Matt Kawczynski Headshot - Shirt and Tie" 
+            alt="Matt Kawczynski Headshot" 
             class="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500" 
           />
         </div>
-        <div class="cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox(2)">
+
+        <!-- Photo 3 (with +3 More badge) -->
+        <div class="relative cursor-pointer group aspect-[2/3] rounded-xl overflow-hidden bg-slate-200 border border-slate-200 shadow-sm hover:shadow-md transition duration-300" onclick="openLightbox(2)">
           <img 
             src="Rcht WEB Matt Kawczynski 0505-EVT eve.jpg" 
-            alt="Matt Kawczynski Headshot - Teal Sweater" 
+            alt="Matt Kawczynski Headshot" 
             class="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500" 
           />
+          <div class="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-md shadow-md border border-slate-700/60 flex items-center gap-1.5 group-hover:bg-slate-900 transition">
+            <i class="fa-regular fa-images text-[11px]"></i>
+            <span>+3 More</span>
+          </div>
         </div>
       </div>
+
+      <!-- Action Button to open lightbox -->
+      <div class="text-center pt-2">
+        <button 
+          type="button" 
+          onclick="openLightbox(0)" 
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-300 font-medium text-sm shadow-sm transition active:scale-95"
+        >
+          <i class="fa-regular fa-images text-slate-400"></i>
+          <span>View All 6 Headshots</span>
+        </button>
+      </div>
+
     </div>
   </section>
 
@@ -341,7 +364,7 @@
     </div>
   </footer>
 
-  <!-- Clean Video Lightbox Player -->
+  <!-- Video Lightbox Player -->
   <div id="videoModal" class="fixed inset-0 z-50 bg-slate-950/90 hidden items-center justify-center p-3 sm:p-6 backdrop-blur-md select-none" onclick="closeModalVideo()">
     <button 
       type="button" 
@@ -364,7 +387,7 @@
     </div>
   </div>
 
-  <!-- Headshots Lightbox Modal -->
+  <!-- Headshots Lightbox Modal (Cycles through all 6 photos) -->
   <div id="lightbox" class="fixed inset-0 z-50 bg-slate-950/95 hidden items-center justify-center p-3 sm:p-6 backdrop-blur-md select-none" onclick="closeLightbox()">
     <button 
       type="button" 
@@ -438,7 +461,6 @@
 
     // --- Video Lightbox Controls ---
     function playModalVideo(videoId, title) {
-      // Close dropdown cleanly
       document.getElementById('reelsDropdownMenu').classList.add('hidden');
       document.getElementById('reelsChevron').classList.remove('rotate-180');
       document.getElementById('reelsBtn').setAttribute('aria-expanded', 'false');
@@ -455,17 +477,20 @@
     function closeModalVideo() {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('modalVideoIframe');
-      iframe.src = ""; // Halts playback and audio instantly
+      iframe.src = "";
       modal.classList.add('hidden');
       modal.classList.remove('flex');
       document.body.classList.remove('overflow-hidden');
     }
 
-    // --- Headshot Lightbox ---
+    // --- Headshot Lightbox (Includes original 3 + all 3 new uploads) ---
     const headshots = [
       "Rcht WEB Matt Kawczynski 0065-EVT eve.jpg",
       "Rcht WEB Matt Kawczynski 0344-EVT eve.jpg",
-      "Rcht WEB Matt Kawczynski 0505-EVT eve.jpg"
+      "Rcht WEB Matt Kawczynski 0505-EVT eve.jpg",
+      "WEB Matt Kawczynski 0056 SGP.jpg",
+      "WEB Matt Kawczynski 0192 SGP.jpg",
+      "WEB Matt Kawczynski 0578 SGP (1).jpg"
     ];
     let currentIndex = 0;
 
@@ -500,7 +525,7 @@
       img.src = headshots[currentIndex];
     }
 
-    // Global Escape Key Listener
+    // Global Escape and Arrow Key Listener
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeLightbox();
