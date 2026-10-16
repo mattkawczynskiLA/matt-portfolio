@@ -17,7 +17,8 @@
   <nav class="fixed top-0 left-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-end">
       <div class="flex items-center space-x-4 sm:space-x-7 text-sm sm:text-base font-semibold">
-        <a href="https://player.vimeo.com/video/228690376" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-cyan-600 transition duration-150">Reels</a>
+        <!-- Opens in-page reel modal -->
+        <button type="button" onclick="openReelModal('228690376')" class="text-slate-700 hover:text-cyan-600 transition duration-150">Reels</button>
         <a href="#headshots" class="text-slate-700 hover:text-indigo-600 transition duration-150">Headshots</a>
         <a href="#resume" class="text-slate-700 hover:text-amber-600 transition duration-150">Credits</a>
         <a href="mailto:MattKawczynski@gmail.com" class="text-slate-700 hover:text-blue-600 transition duration-150">Contact</a>
@@ -32,7 +33,6 @@
         
         <!-- Union Badges -->
         <div class="flex flex-wrap items-end gap-3 sm:gap-4">
-          
           <!-- SAG-AFTRA Group -->
           <div class="flex flex-col items-center gap-2">
             <i class="fa-solid fa-clapperboard text-slate-700 text-xl sm:text-2xl"></i>
@@ -48,7 +48,6 @@
               AEA
             </span>
           </div>
-
         </div>
         
         <div>
@@ -65,11 +64,11 @@
 
         <!-- Action Buttons -->
         <div class="flex flex-wrap items-center gap-3 pt-2">
-          <a href="https://player.vimeo.com/video/228690376" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm group">
+          <!-- Opens In-Page Showcase Player -->
+          <button type="button" onclick="openReelModal('228690376')" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm group">
             <i class="fa-solid fa-play mr-2 text-xs text-slate-400 group-hover:text-slate-700 transition"></i>
             <span>Watch Reel</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1.5 text-slate-400 group-hover:text-slate-700 transition"></i>
-          </a>
+          </button>
           <a href="mailto:MattKawczynski@gmail.com" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm">
             <i class="fa-regular fa-envelope mr-2 text-slate-400"></i> Email
           </a>
@@ -84,9 +83,10 @@
           <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-[#f5c518] hover:text-[#e2b616] hover:scale-110 transition duration-200" title="IMDb">
             <i class="fa-brands fa-imdb text-[28px]"></i>
           </a>
-          <a href="https://player.vimeo.com/video/228690376" target="_blank" rel="noopener noreferrer" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Vimeo Reel">
+          <!-- Opens in-page multi-clip hub -->
+          <button type="button" onclick="openGalleryModal()" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Vimeo Videos">
             <i class="fa-brands fa-vimeo-v text-[22px]"></i>
-          </a>
+          </button>
           <a href="https://www.youtube.com/playlist?list=PL26BF8CD6F47377EF&feature=plcp" target="_blank" rel="noopener noreferrer" class="text-[#ff0000] hover:text-[#cc0000] hover:scale-110 transition duration-200" title="YouTube Playlist">
             <i class="fa-brands fa-youtube text-[24px]"></i>
           </a>
@@ -183,12 +183,10 @@
         </a>
       </div>
 
-      <!-- Credits Table -->
       <div class="space-y-6">
         <div>
           <h3 class="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-3">Film &amp; Television</h3>
           <div class="divide-y divide-slate-100 text-sm">
-            
             <div class="py-3.5 grid grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center">
               <a href="https://www.imdb.com/title/tt5242320/?ref_=nm_flmg_job_1_accord_1_cdt_t_8" target="_blank" rel="noopener noreferrer" class="col-span-12 sm:col-span-6 font-semibold text-blue-600 hover:text-blue-800 transition flex items-center group">
                 <span class="underline decoration-blue-300 underline-offset-2">Binky Nelson Unpacified (Minions short)</span>
@@ -215,7 +213,6 @@
               <span class="col-span-6 sm:col-span-3 text-slate-600">Stan</span>
               <span class="col-span-6 sm:col-span-3 text-right text-slate-400">Dir. Rob Roy</span>
             </div>
-
           </div>
         </div>
       </div>
@@ -233,11 +230,7 @@
           class="block w-40 sm:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition duration-300 border border-slate-200"
           title="Buy Big Helium Dog on Amazon"
         >
-          <img 
-            src="BHD.jpg" 
-            alt="Big Helium Dog" 
-            class="w-full h-full object-cover" 
-          />
+          <img src="BHD.jpg" alt="Big Helium Dog" class="w-full h-full object-cover" />
         </a>
 
         <a 
@@ -247,11 +240,7 @@
           class="block w-40 sm:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition duration-300 border border-slate-200"
           title="Buy Minions on Amazon"
         >
-          <img 
-            src="Minions.jpg" 
-            alt="Minions" 
-            class="w-full h-full object-cover" 
-          />
+          <img src="Minions.jpg" alt="Minions" class="w-full h-full object-cover" />
         </a>
 
         <a 
@@ -261,11 +250,7 @@
           class="block w-40 sm:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition duration-300 border border-slate-200"
           title="Buy Mancation on Amazon"
         >
-          <img 
-            src="Mancation.jpg" 
-            alt="Mancation" 
-            class="w-full h-full object-cover" 
-          />
+          <img src="Mancation.jpg" alt="Mancation" class="w-full h-full object-cover" />
         </a>
       </div>
     </div>
@@ -288,9 +273,10 @@
         <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-[#f5c518] hover:text-[#e2b616] hover:scale-110 transition duration-200" title="IMDb">
           <i class="fa-brands fa-imdb text-[28px]"></i>
         </a>
-        <a href="https://player.vimeo.com/video/228690376" target="_blank" rel="noopener noreferrer" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Vimeo Reel">
+        <!-- Opens in-page multi-clip hub -->
+        <button type="button" onclick="openGalleryModal()" class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" title="Vimeo Videos">
           <i class="fa-brands fa-vimeo-v text-[22px]"></i>
-        </a>
+        </button>
         <a href="https://www.youtube.com/playlist?list=PL26BF8CD6F47377EF&feature=plcp" target="_blank" rel="noopener noreferrer" class="text-[#ff0000] hover:text-[#cc0000] hover:scale-110 transition duration-200" title="YouTube Playlist">
           <i class="fa-brands fa-youtube text-[24px]"></i>
         </a>
@@ -305,7 +291,89 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
+  <!-- Single Reel Modal (Watch Reel / Nav Link) -->
+  <div id="reelModal" class="fixed inset-0 z-50 bg-slate-950/90 hidden items-center justify-center p-3 sm:p-6 backdrop-blur-md select-none" onclick="closeReelModal()">
+    <button 
+      type="button" 
+      aria-label="Close Reel" 
+      class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/80 hover:bg-slate-700 text-white text-xl shadow-lg border border-slate-600/50 transition active:scale-95" 
+      onclick="event.stopPropagation(); closeReelModal();"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <div class="relative w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-2xl bg-black border border-slate-700/50" onclick="event.stopPropagation()">
+      <iframe 
+        id="reelIframe" 
+        class="w-full h-full" 
+        src="" 
+        frameborder="0" 
+        allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Multi-Clip Gallery Modal (Vimeo Icons) -->
+  <div id="galleryModal" class="fixed inset-0 z-50 bg-slate-950/90 hidden items-center justify-center p-3 sm:p-6 backdrop-blur-md select-none" onclick="closeGalleryModal()">
+    <button 
+      type="button" 
+      aria-label="Close Gallery" 
+      class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/80 hover:bg-slate-700 text-white text-xl shadow-lg border border-slate-600/50 transition active:scale-95" 
+      onclick="event.stopPropagation(); closeGalleryModal();"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="relative w-full max-w-4xl bg-slate-900 rounded-2xl border border-slate-700/60 shadow-2xl overflow-hidden flex flex-col p-4 sm:p-6 space-y-4" onclick="event.stopPropagation()">
+      <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+        <div>
+          <h3 class="text-white text-lg sm:text-xl font-semibold flex items-center">
+            <i class="fa-brands fa-vimeo-v text-[#1ab7ea] mr-2"></i> Demo Reel &amp; Clips
+          </h3>
+          <p class="text-slate-400 text-xs sm:text-sm mt-0.5">Select a video to play directly on this page</p>
+        </div>
+      </div>
+
+      <!-- Main Video Screen -->
+      <div class="relative aspect-video w-full rounded-xl overflow-hidden bg-black border border-slate-800 shadow-inner">
+        <iframe 
+          id="galleryIframe" 
+          class="w-full h-full" 
+          src="" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Clip Selector Buttons -->
+      <div class="flex flex-wrap gap-2 pt-1">
+        <button 
+          type="button" 
+          onclick="switchGalleryVideo('228690376', this)" 
+          class="gallery-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-[#1ab7ea] text-white transition active:scale-95"
+        >
+          Primary Demo Reel
+        </button>
+      </div>
+
+      <!-- Direct Fallback Link for Full Profile -->
+      <div class="pt-2 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+        <span>Looking for all uploads?</span>
+        <a 
+          href="https://vimeo.com/user33534306" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-[#1ab7ea] hover:underline flex items-center"
+        >
+          Open Matt's Channel on Vimeo <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1.5"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Headshots Lightbox Modal -->
   <div id="lightbox" class="fixed inset-0 z-50 bg-slate-950/95 hidden items-center justify-center p-3 sm:p-6 backdrop-blur-md select-none" onclick="closeLightbox()">
     <button 
       type="button" 
@@ -345,6 +413,7 @@
   </div>
 
   <script>
+    // --- Headshot Lightbox ---
     const headshots = [
       "Rcht WEB Matt Kawczynski 0065-EVT eve.jpg",
       "Rcht WEB Matt Kawczynski 0344-EVT eve.jpg",
@@ -383,10 +452,63 @@
       img.src = headshots[currentIndex];
     }
 
+    // --- Single Video Reel Modal ---
+    function openReelModal(videoId) {
+      const iframe = document.getElementById('reelIframe');
+      iframe.src = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&color=1ab7ea&title=0&byline=0&portrait=0";
+      const modal = document.getElementById('reelModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeReelModal() {
+      const modal = document.getElementById('reelModal');
+      const iframe = document.getElementById('reelIframe');
+      iframe.src = ""; // stops video playback immediately
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // --- Multi-Clip Video Gallery Modal ---
+    function openGalleryModal() {
+      const modal = document.getElementById('galleryModal');
+      switchGalleryVideo('228690376');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function switchGalleryVideo(videoId, btnElement) {
+      const iframe = document.getElementById('galleryIframe');
+      iframe.src = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&color=1ab7ea&title=0&byline=0&portrait=0";
+      if (btnElement) {
+        document.querySelectorAll('.gallery-btn').forEach(b => {
+          b.className = "gallery-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition active:scale-95";
+        });
+        btnElement.className = "gallery-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-[#1ab7ea] text-white transition active:scale-95";
+      }
+    }
+
+    function closeGalleryModal() {
+      const modal = document.getElementById('galleryModal');
+      const iframe = document.getElementById('galleryIframe');
+      iframe.src = ""; // stops playback
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // --- Global Keyboard Listener (Chromebook / Desktop) ---
     document.addEventListener('keydown', function(e) {
-      const modal = document.getElementById('lightbox');
-      if (!modal.classList.contains('hidden')) {
-        if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeReelModal();
+        closeGalleryModal();
+      }
+      const lightboxModal = document.getElementById('lightbox');
+      if (!lightboxModal.classList.contains('hidden')) {
         if (e.key === 'ArrowRight') nextHeadshot();
         if (e.key === 'ArrowLeft') prevHeadshot();
       }
