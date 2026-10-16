@@ -14,16 +14,17 @@
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-slate-200 selection:text-slate-900">
 
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
+  <nav class="fixed top-0 left-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-end">
       <div class="flex items-center space-x-4 sm:space-x-7 text-sm sm:text-base font-semibold">
         
-        <!-- Interactive Reels Dropdown Menu -->
+        <!-- Mobile-Guarded Reels Dropdown -->
         <div class="relative inline-block text-left" id="reelsDropdownContainer">
           <button 
             type="button" 
+            id="reelsBtn"
             onclick="toggleReelsDropdown(event)" 
-            class="text-slate-700 hover:text-cyan-600 transition duration-150 inline-flex items-center gap-1 focus:outline-none"
+            class="text-slate-700 hover:text-cyan-600 py-2 inline-flex items-center gap-1.5 focus:outline-none transition"
             aria-expanded="false" 
             aria-haspopup="true"
           >
@@ -31,63 +32,52 @@
             <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200" id="reelsChevron"></i>
           </button>
 
-          <!-- Dropdown Panel -->
+          <!-- Dropdown Menu (Centered on mobile viewports so it never clips off-screen) -->
           <div 
             id="reelsDropdownMenu" 
-            class="hidden absolute right-0 mt-2 w-64 rounded-xl bg-white shadow-xl border border-slate-200 py-2 z-50 focus:outline-none"
+            class="hidden absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 mt-2 w-56 rounded-xl bg-white shadow-2xl border border-slate-200 py-1.5 z-50 focus:outline-none"
           >
             <div class="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100">
-              Select Video
+              Select Reel
             </div>
 
-            <!-- Clip 1 (Primary Demo Reel) -->
+            <!-- 1. Theatrical -->
             <button 
               type="button" 
-              onclick="playModalVideo('228690376', 'Primary Demo Reel')" 
-              class="w-full text-left px-3.5 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-600 flex items-center gap-2.5 transition"
+              onclick="playModalVideo('228690376', 'Theatrical Reel')" 
+              class="w-full text-left px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-cyan-600 flex items-center justify-between transition"
             >
-              <i class="fa-solid fa-play text-xs text-slate-400"></i>
-              <span class="font-medium truncate">Primary Demo Reel</span>
+              <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-clapperboard text-xs text-slate-400"></i>
+                <span>Theatrical</span>
+              </div>
+              <i class="fa-solid fa-play text-[10px] text-slate-300"></i>
             </button>
 
-            <!-- Clip 2 (Sample / Scene) -->
+            <!-- 2. Host -->
             <button 
               type="button" 
-              onclick="playModalVideo('CLIP_2_ID', 'Comedy Reel / Scene')" 
-              class="w-full text-left px-3.5 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-600 flex items-center gap-2.5 transition"
+              onclick="playModalVideo('131605541', 'Hosting Reel')" 
+              class="w-full text-left px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-cyan-600 flex items-center justify-between transition border-t border-slate-50"
             >
-              <i class="fa-solid fa-film text-xs text-slate-400"></i>
-              <span class="font-medium truncate">Comedy Reel</span>
+              <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-microphone-lines text-xs text-slate-400"></i>
+                <span>Host</span>
+              </div>
+              <i class="fa-solid fa-play text-[10px] text-slate-300"></i>
             </button>
 
-            <!-- Clip 3 (Dramatic Reel) -->
+            <!-- 3. VO -->
             <button 
               type="button" 
-              onclick="playModalVideo('CLIP_3_ID', 'Dramatic Scene')" 
-              class="w-full text-left px-3.5 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-600 flex items-center gap-2.5 transition"
+              onclick="playModalVideo('165530051', 'Voiceover Reel')" 
+              class="w-full text-left px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-cyan-600 flex items-center justify-between transition border-t border-slate-50"
             >
-              <i class="fa-solid fa-film text-xs text-slate-400"></i>
-              <span class="font-medium truncate">Dramatic Scene</span>
-            </button>
-
-            <!-- Clip 4 (Commercial / VO) -->
-            <button 
-              type="button" 
-              onclick="playModalVideo('CLIP_4_ID', 'Commercial Reel')" 
-              class="w-full text-left px-3.5 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-600 flex items-center gap-2.5 transition"
-            >
-              <i class="fa-solid fa-tv text-xs text-slate-400"></i>
-              <span class="font-medium truncate">Commercial Reel</span>
-            </button>
-
-            <!-- Clip 5 (Voiceover) -->
-            <button 
-              type="button" 
-              onclick="playModalVideo('CLIP_5_ID', 'Voiceover Sample')" 
-              class="w-full text-left px-3.5 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-600 flex items-center gap-2.5 transition"
-            >
-              <i class="fa-solid fa-microphone text-xs text-slate-400"></i>
-              <span class="font-medium truncate">Voiceover Sample</span>
+              <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-headphones text-xs text-slate-400"></i>
+                <span>VO</span>
+              </div>
+              <i class="fa-solid fa-play text-[10px] text-slate-300"></i>
             </button>
           </div>
         </div>
@@ -135,10 +125,10 @@
 
         <!-- Action Buttons -->
         <div class="flex flex-wrap items-center gap-3 pt-2">
-          <!-- Opens Primary Demo Reel Directly in Modal -->
+          <!-- Opens Theatrical Reel directly -->
           <button 
             type="button" 
-            onclick="playModalVideo('228690376', 'Primary Demo Reel')" 
+            onclick="playModalVideo('228690376', 'Theatrical Reel')" 
             class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg text-sm transition flex items-center shadow-sm group"
           >
             <i class="fa-solid fa-play mr-2 text-xs text-slate-400 group-hover:text-slate-700 transition"></i>
@@ -158,12 +148,12 @@
           <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="text-[#f5c518] hover:text-[#e2b616] hover:scale-110 transition duration-200" title="IMDb">
             <i class="fa-brands fa-imdb text-[28px]"></i>
           </a>
-          <!-- Vimeo icon triggers primary reel modal directly -->
+          <!-- Vimeo icon plays Theatrical Reel -->
           <button 
             type="button" 
-            onclick="playModalVideo('228690376', 'Primary Demo Reel')" 
+            onclick="playModalVideo('228690376', 'Theatrical Reel')" 
             class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" 
-            title="Watch Demo Reel"
+            title="Watch Reel"
           >
             <i class="fa-brands fa-vimeo-v text-[22px]"></i>
           </button>
@@ -355,9 +345,9 @@
         </a>
         <button 
           type="button" 
-          onclick="playModalVideo('228690376', 'Primary Demo Reel')" 
+          onclick="playModalVideo('228690376', 'Theatrical Reel')" 
           class="text-[#1ab7ea] hover:text-[#1594be] hover:scale-110 transition duration-200" 
-          title="Watch Demo Reel"
+          title="Watch Reel"
         >
           <i class="fa-brands fa-vimeo-v text-[22px]"></i>
         </button>
@@ -375,7 +365,7 @@
     </div>
   </footer>
 
-  <!-- Clean Video Lightbox Player (Only appears when clicked) -->
+  <!-- Clean Video Lightbox Player -->
   <div id="videoModal" class="fixed inset-0 z-50 bg-slate-950/90 hidden items-center justify-center p-3 sm:p-6 backdrop-blur-md select-none" onclick="closeModalVideo()">
     <button 
       type="button" 
@@ -440,38 +430,42 @@
   <script>
     // --- Reels Dropdown Controls ---
     function toggleReelsDropdown(e) {
-      e.stopPropagation();
+      if (e) e.stopPropagation();
       const menu = document.getElementById('reelsDropdownMenu');
       const chevron = document.getElementById('reelsChevron');
+      const btn = document.getElementById('reelsBtn');
       const isHidden = menu.classList.contains('hidden');
 
       if (isHidden) {
         menu.classList.remove('hidden');
         chevron.classList.add('rotate-180');
+        btn.setAttribute('aria-expanded', 'true');
       } else {
         menu.classList.add('hidden');
         chevron.classList.remove('rotate-180');
+        btn.setAttribute('aria-expanded', 'false');
       }
     }
 
-    // Close dropdown on click outside
+    // Close dropdown on outside tap/click
     document.addEventListener('click', function(e) {
       const container = document.getElementById('reelsDropdownContainer');
       const menu = document.getElementById('reelsDropdownMenu');
       const chevron = document.getElementById('reelsChevron');
+      const btn = document.getElementById('reelsBtn');
       if (container && !container.contains(e.target)) {
         menu.classList.add('hidden');
         chevron.classList.remove('rotate-180');
+        btn.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // --- Video Pop-up Modal Controls ---
+    // --- Video Lightbox Controls ---
     function playModalVideo(videoId, title) {
-      if (!videoId || videoId.startsWith('CLIP_')) return;
-      
-      // Close dropdown if open
+      // Close dropdown cleanly
       document.getElementById('reelsDropdownMenu').classList.add('hidden');
       document.getElementById('reelsChevron').classList.remove('rotate-180');
+      document.getElementById('reelsBtn').setAttribute('aria-expanded', 'false');
 
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('modalVideoIframe');
@@ -485,7 +479,7 @@
     function closeModalVideo() {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('modalVideoIframe');
-      iframe.src = ""; // Instantly halts playback and audio
+      iframe.src = ""; // Halts playback and audio instantly
       modal.classList.add('hidden');
       modal.classList.remove('flex');
       document.body.classList.remove('overflow-hidden');
