@@ -1,14 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecting to Channel...</title>
-  <meta http-equiv="refresh" content="0; url=https://vimeo.com/mattkawczynski">
-  <script>
-    window.location.replace("https://vimeo.com/mattkawczynski");
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matt Kawczynski | Reels &amp; Video Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body style="background-color: #0f172a; color: #94a3b8; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
-  <p>Redirecting to channel... If not redirected, <a href="https://vimeo.com/mattkawczynski" style="color: #38bdf8;">click here</a>.</p>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased flex flex-col justify-between">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="/" class="font-bold text-white tracking-wide text-base sm:text-lg hover:text-slate-300 transition">
+          Matt Kawczynski
+        </a>
+        <span class="text-xs uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+          Video Library
+        </span>
+      </div>
+      <a href="/" class="text-sm font-medium text-sky-400 hover:text-sky-300 transition flex items-center">
+        <i class="fa-solid fa-arrow-left mr-1.5 text-xs"></i> Back to Main Site
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Showcase Container -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full space-y-10">
+    
+    <!-- Primary Active Player -->
+    <section class="space-y-3">
+      <div class="relative aspect-video w-full max-w-4xl mx-auto rounded-2xl overflow-hidden bg-black border border-slate-800 shadow-2xl">
+        <iframe 
+          id="featuredPlayer"
+          class="w-full h-full"
+          src="https://player.vimeo.com/video/228690376?color=38bdf8&title=0&byline=0&portrait=0" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="max-w-4xl mx-auto flex items-center justify-between text-xs text-slate-400 px-1">
+        <span id="nowPlayingTitle" class="font-medium text-slate-200">Now Playing: Primary Demo Reel</span>
+        <span class="hidden sm:inline">Select any clip below to switch videos</span>
+      </div>
+    </section>
+
+    <!-- Clip Selector Grid -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h2 class="text-lg font-semibold text-white tracking-tight flex items-center">
+          <i class="fa-brands fa-vimeo-v text-[#1ab7ea] mr-2"></i> All Reels &amp; Scene Clips
+        </h2>
+        <span class="text-xs text-slate-400">10 Videos</span>
+      </div>
+
+      <!-- 10 Selectable Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        
+        <!-- Clip 1 (Active by default) -->
+        <button type="button" onclick="playClip('228690376', 'Primary Demo Reel', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-sky-500 hover:border-sky-400 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Primary Demo Reel</p>
+            <p class="text-xs text-slate-400">General Showcase</p>
+          </div>
+        </button>
+
+        <!-- Clip 2 -->
+        <button type="button" onclick="playClip('CLIP_2_ID', 'Comedy Reel', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Comedy Reel</p>
+            <p class="text-xs text-slate-400">Film &amp; TV Clips</p>
+          </div>
+        </button>
+
+        <!-- Clip 3 -->
+        <button type="button" onclick="playClip('CLIP_3_ID', 'Dramatic Reel', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Dramatic Reel</p>
+            <p class="text-xs text-slate-400">Scene Excerpts</p>
+          </div>
+        </button>
+
+        <!-- Clip 4 -->
+        <button type="button" onclick="playClip('CLIP_4_ID', 'Commercial Reel', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Commercial Reel</p>
+            <p class="text-xs text-slate-400">Spots &amp; Promos</p>
+          </div>
+        </button>
+
+        <!-- Clip 5 -->
+        <button type="button" onclick="playClip('CLIP_5_ID', 'Voiceover Sample 1', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Voiceover Sample 1</p>
+            <p class="text-xs text-slate-400">Animation / Character</p>
+          </div>
+        </button>
+
+        <!-- Clip 6 -->
+        <button type="button" onclick="playClip('CLIP_6_ID', 'Voiceover Sample 2', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Voiceover Sample 2</p>
+            <p class="text-xs text-slate-400">Commercial &amp; Promo</p>
+          </div>
+        </button>
+
+        <!-- Clip 7 -->
+        <button type="button" onclick="playClip('CLIP_7_ID', 'Big Helium Dog Clip', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Big Helium Dog Clip</p>
+            <p class="text-xs text-slate-400">Feature Excerpt</p>
+          </div>
+        </button>
+
+        <!-- Clip 8 -->
+        <button type="button" onclick="playClip('CLIP_8_ID', 'Minions Character Reel', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Minions Character Reel</p>
+            <p class="text-xs text-slate-400">Security Guard</p>
+          </div>
+        </button>
+
+        <!-- Clip 9 -->
+        <button type="button" onclick="playClip('CLIP_9_ID', 'The Red Rob Roy Show', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">The Red Rob Roy Show</p>
+            <p class="text-xs text-slate-400">Stan Scene</p>
+          </div>
+        </button>
+
+        <!-- Clip 10 -->
+        <button type="button" onclick="playClip('CLIP_10_ID', 'Mancation Excerpt', this)" class="clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group">
+          <div class="w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-white truncate">Mancation Excerpt</p>
+            <p class="text-xs text-slate-400">Feature Clip</p>
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="py-8 border-t border-slate-900 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span>© Matt Kawczynski</span>
+      <div class="space-x-4">
+        <a href="https://www.imdb.com/name/nm1189848/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300">IMDb</a>
+        <a href="https://www.youtube.com/playlist?list=PL26BF8CD6F47377EF&feature=plcp" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300">YouTube</a>
+        <a href="mailto:MattKawczynski@gmail.com" class="hover:text-slate-300">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script to Switch Video On Click -->
+  <script>
+    function playClip(vimeoId, title, cardElement) {
+      if (!vimeoId || vimeoId.startsWith('CLIP_')) return;
+      
+      const iframe = document.getElementById('featuredPlayer');
+      iframe.src = "https://player.vimeo.com/video/" + vimeoId + "?autoplay=1&color=38bdf8&title=0&byline=0&portrait=0";
+      document.getElementById('nowPlayingTitle').innerText = "Now Playing: " + title;
+
+      // On mobile viewports, scroll smoothly up to the video player
+      if (window.innerWidth < 768) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update card visual state
+      document.querySelectorAll('.clip-card').forEach(card => {
+        card.className = "clip-card p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left transition flex items-center space-x-3.5 group";
+        const iconContainer = card.querySelector('div');
+        if (iconContainer) {
+          iconContainer.className = "w-11 h-11 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition";
+        }
+      });
+
+      if (cardElement) {
+        cardElement.className = "clip-card p-3.5 rounded-xl bg-slate-900 border border-sky-500 hover:border-sky-400 text-left transition flex items-center space-x-3.5 group";
+        const activeIcon = cardElement.querySelector('div');
+        if (activeIcon) {
+          activeIcon.className = "w-11 h-11 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition";
+        }
+      }
+    }
+  </script>
 </body>
 </html>
